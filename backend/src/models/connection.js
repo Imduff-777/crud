@@ -10,6 +10,4 @@ const connection = mysql.createPool({
 
 module.exports = connection
 
-
-
 //pegando variaveis de ambientes do .env para ninguem do github ver essas informações
