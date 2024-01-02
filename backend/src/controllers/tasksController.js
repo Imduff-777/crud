@@ -15,8 +15,14 @@ const createTask = async (req,res) => {
     res.json(createdTask); //exibindo o retorno da função da camada 1 atraves da variavel createdTask
 }
 
+const deleteTask = async (req, res) => {
+    const delet = await tasksModel.deleteTask(req.params.id)
+    res.json(delet)
+}
+
 //exportando as funções da camada 2 para pegar na camada 3
 module.exports = {
     getAll,
-    createTask
+    createTask,
+    deleteTask
 }
