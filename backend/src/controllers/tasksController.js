@@ -16,19 +16,21 @@ const createTask = async (req,res) => {
 }
 
 const deleteTask = async (req, res) => {
-    const delet = await tasksModel.deleteTask(req.params.id)
-    res.json(delet)
+    await tasksModel.deleteTask(req.params.id)
+    return res.status(204).json();
 }
 
+/*
 const updateTask = async (req, res) => {
     const update = await tasksModel.updateTask(req.params.id, req.body)
     res.json(update)
 }
+*/
 
 //exportando as funções da camada 2 para pegar na camada 3
 module.exports = {
     getAll,
     createTask,
     deleteTask,
-    updateTask
+    //updateTask
 }
