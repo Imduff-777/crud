@@ -15,7 +15,8 @@ const createTask = async (task) => { //ira receber um parametro, esse parametro 
     const { title } = task; // estou falando que quero apenas o "title" do json "task" que vira do user.
     const date = new Date(Date.now()).toUTCString(); //criando uma data baseada em milisegundos extraidos do Date.now() e convertendo em UTC.
 
-    const create = await connection.execute("INSERT INTO tasks(title, status, create_at) VALUES (?, ?, ?)", [title, "pendente", date]);
+    //const create = await connection.execute("INSERT INTO tasks(title, status, create_at) VALUES (?, ?, ?)", [title, "pendente", date]);
+    const create = await connection.execute(`INSERT INTO tasks(title, status, create_at) VALUES ("${title}", "Pendente", "${date}")`);
     //acima estamos criado uma variavel chamada create que vai armazenar a função de inserir os valores no banco de dados, ela esta inserindo os valores "title", "status", "create_at"
     return create[0].insertId;
     //acima estamos retornando para esta função o create[0], apenas a primeira posição do array, pois a segunda é o buffer.
@@ -26,10 +27,17 @@ const deleteTask = async (id) => {
     return delet;
 }
 
+const updateTask = async (id, task) => {
+    const { title } = task;
+    const update = await connection.execute(`UPDATE tasks SET title = "${title}" WHERE id = ${id}`);
+    return update;
+}
+
 
 //exportando as funções da camada 1 para pegar na camada 2
 module.exports = {
     getAll,
     createTask,
-    deleteTask
+    deleteTask,
+    updateTask
 };
