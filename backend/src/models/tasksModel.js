@@ -27,13 +27,14 @@ const deleteTask = async (id) => {
     return delet;
 }
 
-/*
+
 const updateTask = async (id, task) => {
-    const { title } = task;
-    const update = await connection.execute(`UPDATE tasks SET title = "${title}" WHERE id = ${id}`);
-    return update;
+    const { title, status } = task;
+
+    const [updateTask] = await connection.execute(`UPDATE tasks SET title = "${title}", status = "${status}" WHERE id = "${id}"`);
+    return updateTask;
 }
-*/
+
 
 
 //exportando as funções da camada 1 para pegar na camada 2
@@ -41,5 +42,5 @@ module.exports = {
     getAll,
     createTask,
     deleteTask,
-    //updateTask
+    updateTask
 };
