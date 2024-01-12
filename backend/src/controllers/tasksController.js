@@ -20,7 +20,7 @@ const deleteTask = async (req, res) => {
     return res.status(204).json();
 }
 
-
+//função do meio que vai chamar a função criada em tasksModel e passar os parametros dela que foram colocados pelo user
 const updateTask = async (req, res) => {
     await tasksModel.updateTask(req.params.id, req.body)
     return res.status(204).json()

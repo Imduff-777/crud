@@ -27,7 +27,7 @@ const deleteTask = async (id) => {
     return delet;
 }
 
-
+//função de fazer atualização nas tasks no db
 const updateTask = async (id, task) => {
     const { title, status } = task;
 
