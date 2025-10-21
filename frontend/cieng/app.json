@@ -1,8 +1,12 @@
 {
   "expo": {
+    "scheme": "myapp",
     "name": "cieng",
     "slug": "cieng",
     "version": "1.0.0",
-    "newArchEnabled": true
+    "newArchEnabled": true,
+    "android": {
+      "package": "com.anonymous.cieng"
+    }
   }
 }

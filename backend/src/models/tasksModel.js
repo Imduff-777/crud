@@ -37,10 +37,10 @@ const updateTask = async (id, task) => {
 
 
 
-//exportando as funções da camada 1 para pegar na camada 2
+//exportando todas as funções para pegar na camada 2
 module.exports = {
     getAll,
     createTask,
     deleteTask,
-    updateTask
+    updateTask,
 };

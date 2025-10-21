@@ -33,5 +33,6 @@ module.exports = {
     getAll,
     createTask,
     deleteTask,
-    updateTask
+    updateTask,
 }
+
